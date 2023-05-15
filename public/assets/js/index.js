@@ -31,7 +31,12 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
+
   });
+  //.then((response) => response.json())
+  //.catch((error) => {
+  // console.error ('Error:', error);
+  //});
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -41,7 +46,14 @@ const saveNote = (note) =>
     },
     body: JSON.stringify(note),
   });
-
+  //.then((response) => response.json())
+  //.then((data) => {
+  //alert(data);
+  //createLi(note);
+  //})
+  //.catch((error) => {
+  // console.error ('Error:', error);
+  //});
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
