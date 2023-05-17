@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
-const api = require('./routes/index.js');
+const api = require('./assets/routes/index.js');
 
-const PORT =porcess.env.PORT || 3001;
+const PORT = porcess.env.PORT || 3001;
 
 const app = express();
 
@@ -20,6 +20,9 @@ app.get('/note', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/404.html'))
+);
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
 );
