@@ -22,21 +22,21 @@ notes.get('/:note_id', (req, res) => {
   });
   
   // DELETE Route for a specific node
-//   tips.delete('/:tip_id', (req, res) => {
-//     const tipId = req.params.tip_id;
-//     readFromFile('./db/tips.json')
-//       .then((data) => JSON.parse(data))
-//       .then((json) => {
-//         // Make a new array of all tips except the one with the ID provided in the URL
-//         const result = json.filter((tip) => tip.tip_id !== tipId);
+  notes.delete('/notes/:note_id', (req, res) => {
+    const noteId = req.params.note_id;
+    readFromFile('./db/db.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        // Make a new array of all tips except the one with the ID provided in the URL
+        const result = json.filter((note) => note.note_id !== noteId);
   
-//         // Save that array to the filesystem
-//         writeToFile('./db/tips.json', result);
+        // Save that array to the filesystem
+        writeToFile('./db/db.json', result);
   
-//         // Respond to the DELETE request
-//         res.json(`Item ${tipId} has been deleted 🗑️`);
-//       });
-//   });
+        // Respond to the DELETE request
+        res.json(`Item ${noteId} has been deleted 🗑️`);
+      });
+  });
 // Post Route for adding a note to the list
 notes.post('/', (req, res) => {
 
