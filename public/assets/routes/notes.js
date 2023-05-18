@@ -10,11 +10,11 @@ notes.get('/', (req, res) => {
 });
 // GET Route for a specific note
 notes.get('/:note_id', (req, res) => {
-    const noteId = req.params.tip_id;
+    const noteId = req.params.note_id;
     readFromFile('./db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
-        const result = json.filter((nodes) => notes.note_id === noteId);
+        const result = json.filter((note) => note.note_id === noteId);
         return result.length > 0
           ? res.json(result)
           : res.json('No note with that ID');
@@ -50,7 +50,7 @@ notes.post('/', (req, res) => {
        readAndAppend(newNote, './db/db.json');
        res.json(`Your new note was created!`); 
     } else{
-        res.error('There was an error in adding your note')
+      res.error('There was an error in adding your note')
     }
 });
 

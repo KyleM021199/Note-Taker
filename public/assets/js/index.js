@@ -31,16 +31,18 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    //body: JSON.stringify(data),
   
   })
   .then((response) => response.json())
+  .then((data) => 
+  renderNoteList(data))
   .catch((error) => {
    console.error ('Error:', error);
   });
 // fetches the POST of the saved note
 const saveNote = (note) =>
-  fetch('/api/note', {
+  fetch('/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -50,19 +52,20 @@ const saveNote = (note) =>
   .then((response) => response.json())
   .then((data) => {
   alert(data);
-  createLi(note);
+  noteList(note);
   })
   .catch((error) => {
    console.error ('Error:', error);
   });
 const deleteNote = (id) =>
-  fetch(`/api/note/${id}`, {
+  fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
-
+  
+  getNotes().then((data) => data.forEach((note) => noteList(note)));
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 

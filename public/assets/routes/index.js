@@ -1,9 +1,9 @@
 const express = require('express');
 //Imported routers
-const notesRouter = require('./note.js');
+const notesRouter = require('./notes.js');
 
 const app = express();
 
-app.use('/note', notesRouter);
+app.use('/notes', notesRouter);
 
 module.exports = app;
