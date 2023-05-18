@@ -1,6 +1,7 @@
 const notes = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
- const {readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readAndAppend, readFromFile } = require('../../../helpers/fsUtils');
+  
 
 //GET Route for obtaining all notes
 notes.get('/', (req, res) => {
@@ -8,17 +9,17 @@ notes.get('/', (req, res) => {
 
 });
 // GET Route for a specific note
-// tips.get('/:tip_id', (req, res) => {
-//     const tipId = req.params.tip_id;
-//     readFromFile('./db/tips.json')
-//       .then((data) => JSON.parse(data))
-//       .then((json) => {
-//         const result = json.filter((tip) => tip.tip_id === tipId);
-//         return result.length > 0
-//           ? res.json(result)
-//           : res.json('No tip with that ID');
-//       });
-//   });
+notes.get('/:note_id', (req, res) => {
+    const noteId = req.params.tip_id;
+    readFromFile('./db/db.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        const result = json.filter((nodes) => notes.note_id === noteId);
+        return result.length > 0
+          ? res.json(result)
+          : res.json('No note with that ID');
+      });
+  });
   
   // DELETE Route for a specific node
 //   tips.delete('/:tip_id', (req, res) => {
@@ -44,6 +45,7 @@ notes.post('/', (req, res) => {
        const newNote = {
         title,
         text,
+        note_id: uuidv4(),
        };
        readAndAppend(newNote, './db/db.json');
        res.json(`Your new note was created!`); 

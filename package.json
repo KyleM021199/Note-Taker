@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/KyleM021199/Note-Taker#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "fsutil": "^0.1.3",
+    "uuid": "^9.0.0"
   }
 }

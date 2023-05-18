@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
-const api = require('./assets/routes/index.js');
+const api = require('./public/assets/routes/index.js');
 
-const PORT = porcess.env.PORT || 3001;
+
+const PORT = 3001;
 
 const app = express();
 
