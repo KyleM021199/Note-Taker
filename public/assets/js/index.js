@@ -30,8 +30,7 @@ const getNotes = () =>
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-    },
-  
+    },  
   });
  
 // fetches the POST of the saved note
@@ -52,7 +51,7 @@ const saveNote = (note) =>
     },
   });
   
-  //getNotes().then((data) => data.forEach((note) => noteList(note)));
+
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
