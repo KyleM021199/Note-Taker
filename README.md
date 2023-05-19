@@ -24,6 +24,8 @@
 
   ## Usage
   go to the provided website: https://note-taker-kyle-mcclendon.herokuapp.com/
+![Noter-Taker_img1](https://github.com/KyleM021199/Note-Taker/assets/118197174/780be534-b2bd-4a45-860e-aa2ba2ddbdf8)
+![Noter-Taker_img2](https://github.com/KyleM021199/Note-Taker/assets/118197174/6b4a5e5a-c8b9-4814-9824-85b51e1b69f3)
 
   ## Contributing
   N/A
